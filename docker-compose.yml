@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:13.3
+    env_file: ./backend/.env
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=DB_NAME
+      - POSTGRES_USER=DB_USER
+      - POSTGRES_PASSWORD=DB_PASSWORD
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  api:
+    build: ./backend
+    container_name: backend
+    restart: always
+
+    command: >
+      bash -c
+        "python3 manage.py migrate
+        python3 manage.py create_superuser
+        python3 manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    volumes:
+      - media:/backend/storage
+
+  web:
+    build: ./frontend
+    container_name: frontend
+    restart: always
+    ports:
+      - 3000:3000
+
+volumes:
+  postgres_data:
+  media:
