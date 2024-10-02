@@ -36,4 +36,4 @@
 
 ## 2. Развертывание приложения на сервере
 
-[Deployed application](http://95.163.241.176:3000)
+[Deployed application](http://89.108.76.89:3000)
