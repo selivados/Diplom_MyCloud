@@ -59,15 +59,17 @@ export const StoragePage: FC = () => {
       comment
     );
 
-    const newFileData = { id, comment: newFileComment };
+    if (newFileComment) {
+      const newFileData = { id, comment: newFileComment };
 
-    dispatch(changeFile(newFileData))
-      .unwrap()
-      .then(() => {
-        console.log("Комментарий к файлу успешно изменён.");
-        dispatch(getFilesList(storageOwner?.storage_path));
-      })
-      .catch((error) => console.log(error));
+      dispatch(changeFile(newFileData))
+        .unwrap()
+        .then(() => {
+          console.log("Комментарий к файлу успешно изменён.");
+          dispatch(getFilesList(storageOwner?.storage_path));
+        })
+        .catch((error) => console.log(error));
+    }
   };
 
   const handleDownloadFile = (id: number, file_name: string) => {
