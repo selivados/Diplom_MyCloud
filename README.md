@@ -12,12 +12,12 @@
 4. Переходим в папку `backend`:\
    `cd backend`
 5. Создаем виртуальное окружение:\
-   `python -m venv env`
+   `python -m venv venv`
 6. Активируем виртуальное окружение:\
-   `env/Scripts/activate`
+   `venv/Scripts/activate`
 7. Устанавливаем зависимости:\
    `pip install -r requirements.txt`
-8. В папке `backend` создаем файл `.env` в соответствии с шаблоном `env.template`:
+8. В папке `backend` создаем файл `.env` в соответствии с шаблоном `env.template`
 9. Создаем базу данных, с учетом настроек указанных в файле `.env`:\
    `createdb -U <DB_USER> <DB_NAME>`\
    Пароль: `<DB_PASSWORD>`
@@ -26,15 +26,22 @@
 11. Создаем администратора (суперпользователя) с указанными в файле `.env` данными:\
    `python manage.py create_superuser`
 12. Запускаем сервер:\
-   `python manage.py runserver`
+   `python manage.py runserver` (при DEBUG=True)\
+   `python manage.py runserver --insecure` (при DEBUG=False)
 ---
-13. Открываем отдельный терминал и переходим в папку `frontend`
-14. В файле `.env` указываем базовый URL:\
+13. Открываем отдельный терминал и переходим в папку `frontend`:\
+   `cd frontend`
+14. В папке `frontend` создаем файл `.env` и указываем в нем базовый URL:\
    `VITE_BASE_URL=http://localhost:8000/api`
 15. Устанавливаем зависимости:\
    `npm i`
 16. Запускаем приложение:\
    `npm run dev`
+---
+17. Проверяем доступность сайта по адресу:\
+   `http://localhost:3000`
+18. Проверяем доступность сайта администратора по адресу:\
+   `http://localhost:8000/admin/`
 
 ## II. Развертывание приложения на сервере
 
@@ -84,9 +91,9 @@
 17. Переходим в папку проекта `backend`:\
    `cd /home/<имя пользователя>/Diplom_MyCloud/backend`
 18. Устанавливаем виртуальное окружение:\
-   `python3 -m venv env`
+   `python3 -m venv venv`
 19. Активируем виртуальное окружение:\
-   `source env/bin/activate`
+   `source venv/bin/activate`
 20. Устанавливаем зависимости:\
    `pip install -r requirements.txt`
 ---
@@ -129,7 +136,7 @@
       User=<имя пользователя>
       Group=www-data
       WorkingDirectory=/home/<имя пользователя>/Diplom_MyCloud/backend
-      ExecStart=/home/<имя пользователя>/Diplom_MyCloud/backend/env/bin/gunicorn \
+      ExecStart=/home/<имя пользователя>/Diplom_MyCloud/backend/venv/bin/gunicorn \
                --access-logfile - \
                --workers=3 \
                --bind unix:/run/gunicorn.sock \
@@ -203,7 +210,7 @@
 ---
 46. Переходим в папку проекта `frontend`:\
    `cd /home/<имя пользователя>/Diplom_MyCloud/frontend`
-47. В файле `.env` указываем базовый URL:\
+47. В папке `frontend` создаем файл `.env` и указываем в нем базовый URL:\
    `nano .env`\
    `VITE_BASE_URL=http://<ip адрес сервера>/api`
 48. Устанавливаем зависимости:\
@@ -241,7 +248,7 @@
 53. Проверяем статус сервиса `frontend`:\
    `sudo systemctl status frontend`
 ---
-54. Проверяем доступность сайта по адресу:\
+54.  Проверяем доступность сайта по адресу:\
    `http://<ip адрес сервера>:3000`
-55. Проверяем доступность административной части сайта по адресу:\
+55.  Проверяем доступность сайта администратора по адресу:\
    `http://<ip адрес сервера>/admin/`
