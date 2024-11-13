@@ -133,12 +133,12 @@
       After=network.target
 
       [Service]
-      User=<имя пользователя>
+      User=<ИМЯ ПОЛЬЗОВАТЕЛЯ>
       Group=www-data
-      WorkingDirectory=/home/<имя пользователя>/Diplom_MyCloud/backend
-      ExecStart=/home/<имя пользователя>/Diplom_MyCloud/backend/venv/bin/gunicorn \
+      WorkingDirectory=/home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/backend
+      ExecStart=/home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/backend/venv/bin/gunicorn \
                --access-logfile - \
-               --workers=3 \
+               --workers 3 \
                --bind unix:/run/gunicorn.sock \
                mycloud.wsgi:application
 
@@ -161,7 +161,7 @@
       ```
       server {
          listen 80;
-         server_name <ip адрес сервера>;
+         server_name <ИМЯ ДОМЕНА ИЛИ IP АДРЕС СЕРВЕРА>;
 
          location = /favicon.ico {
             access_log off;
@@ -169,7 +169,7 @@
          }
 
          location /static/ {
-            root /home/<имя пользователя>/Diplom_MyCloud/backend;
+            root /home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/backend;
          }
 
          location / {
@@ -220,7 +220,7 @@
 
       ```
       #!/bin/bash
-      . /home/<имя пользователя>/.nvm/nvm.sh
+      . /home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/.nvm/nvm.sh
       npm run dev
       ```
 50. Делаем файл `start.sh` исполняемым:\
@@ -234,10 +234,10 @@
       After=network.target
 
       [Service]
-      User=<имя пользователя>
+      User=<ИМЯ ПОЛЬЗОВАТЕЛЯ>
       Group=www-data
-      WorkingDirectory=/home/<имя пользователя>/Diplom_MyCloud/frontend
-      ExecStart=/home/<имя пользователя>/Diplom_MyCloud/frontend/start.sh
+      WorkingDirectory=/home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/frontend
+      ExecStart=/home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/frontend/start.sh
 
       [Install]
       WantedBy=multi-user.target
