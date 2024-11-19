@@ -62,13 +62,13 @@
    Вводим пароль для доступа к серверу из письма, полученного на эл. почту
 ---
 5. Создаем нового пользователя:\
-   `adduser <имя пользователя>`
+   `adduser <ИМЯ ПОЛЬЗОВАТЕЛЯ>`
 6. Добавляем созданного пользователя в группу `sudo`:\
-   `usermod <имя пользователя> -aG sudo`
+   `usermod <ИМЯ ПОЛЬЗОВАТЕЛЯ> -aG sudo`
 7. Выходим из под пользователя `root`:\
    `logout`
 8. Подключаемся к серверу под новым пользователем:\
-   `ssh <имя пользователя>@<ip адрес сервера>`
+   `ssh <ИМЯ ПОЛЬЗОВАТЕЛЯ>@<IP АДРЕС СЕРВЕРА>`
 ---
 9. Скачиваем обновления пакетов `apt`, чтобы пользоваться их актуальными релизами:\
    `sudo apt update`
@@ -77,10 +77,10 @@
 ---
 11. Заходим в панель `psql` под пользователем `postgres`:\
    `sudo -u postgres psql`
-12. Создаем базу данных:\
-   `CREATE DATABASE mycloud;`
-13. Задаем пароль для пользователя `postgres`:\
+12. Задаем пароль для пользователя `postgres`:\
    `ALTER USER postgres WITH PASSWORD 'postgres';`
+13. Создаем базу данных:\
+   `CREATE DATABASE mycloud;`
 14. Выходим из панели `psql`:\
     `\q`
 ---
@@ -89,7 +89,7 @@
 16. Клонируем репозиторий:\
    `git clone https://github.com/freelandos/Diplom_MyCloud.git`
 17. Переходим в папку проекта `backend`:\
-   `cd /home/<имя пользователя>/Diplom_MyCloud/backend`
+   `cd /home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/backend`
 18. Устанавливаем виртуальное окружение:\
    `python3 -m venv venv`
 19. Активируем виртуальное окружение:\
@@ -202,17 +202,17 @@
 42. Проверяем версию `nvm`:\
    `nvm -v`
 43. Устанавливаем нужную версию `node`:\
-   `nvm install <номер версии>`
+   `nvm install <НОМЕР ВЕРСИИ>`
 44. Проверяем версию `node`:\
    `node -v`
 45. Проверяем версию `npm`:\
    `npm -v`
 ---
 46. Переходим в папку проекта `frontend`:\
-   `cd /home/<имя пользователя>/Diplom_MyCloud/frontend`
+   `cd /home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/frontend`
 47. В папке `frontend` создаем файл `.env` и указываем в нем базовый URL:\
    `nano .env`\
-   `VITE_BASE_URL=http://<ip адрес сервера>/api`
+   `VITE_BASE_URL=http://<IP АДРЕС СЕРВЕРА>/api`
 48. Устанавливаем зависимости:\
    `npm i`
 49. Создаем файл `start.sh`:\
@@ -224,7 +224,7 @@
       npm run dev
       ```
 50. Делаем файл `start.sh` исполняемым:\
-   `chmod +x /home/<имя пользователя>/Diplom_MyCloud/frontend/start.sh`
+   `chmod +x /home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/frontend/start.sh`
 51. Создаем файл `frontend.service`:\
    `sudo nano /etc/systemd/system/frontend.service`
 
@@ -249,6 +249,6 @@
    `sudo systemctl status frontend`
 ---
 54.  Проверяем доступность сайта по адресу:\
-   `http://<ip адрес сервера>:3000`
+   `http://<IP АДРЕС СЕРВЕРА>:3000`
 55.  Проверяем доступность сайта администратора по адресу:\
-   `http://<ip адрес сервера>/admin/`
+   `http://<IP АДРЕС СЕРВЕРА>/admin/`
