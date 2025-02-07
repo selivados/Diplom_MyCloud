@@ -6,7 +6,7 @@
 
 1. Запускаем терминал в директории, где планируется разместить папку с файлами проекта
 2. Клонируем репозиторий:\
-   `git clone https://github.com/freelandos/Diplom_MyCloud.git`
+   `git clone https://github.com/selivados/Diplom_MyCloud.git`
 3. Открываем папку `Diplom_MyCloud` в любой IDE и запускаем встроенный терминал
 ---
 4. Переходим в папку `backend`:\
@@ -87,7 +87,7 @@
 15. Проверяем что установлен `git`:\
    `git --version`
 16. Клонируем репозиторий:\
-   `git clone https://github.com/freelandos/Diplom_MyCloud.git`
+   `git clone https://github.com/selivados/Diplom_MyCloud.git`
 17. Переходим в папку проекта `backend`:\
    `cd /home/<ИМЯ ПОЛЬЗОВАТЕЛЯ>/Diplom_MyCloud/backend`
 18. Устанавливаем виртуальное окружение:\
